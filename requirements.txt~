@@ -1,3 +1,13 @@
+nltk==3.2.1
+notebook==4.1.0
+numpy==1.10.4
+pandas==0.17.1
+path.py==0.0.0
+pathspec==0.5.0
+pexpect==3.3
+pickleshare==0.5
+scikit-learn==0.17.1
+scipy==0.17.0
 awsebcli==3.9.0
 backports-abc==0.4
 backports.ssl-match-hostname==3.5.0.1
@@ -5,7 +15,6 @@ blessed==1.9.5
 botocore==1.4.91
 cement==2.8.2
 colorama==0.3.7
-cv2==1.0
 cycler==0.9.0
 decorator==4.0.10
 docker-py==1.7.2
@@ -34,14 +43,6 @@ mistune==0.7.1
 moviepy==0.2.2.11
 nbconvert==4.1.0
 nbformat==4.0.1
-nltk==3.2.1
-notebook==4.1.0
-numpy==1.10.4
-pandas==0.17.1
-path.py==0.0.0
-pathspec==0.5.0
-pexpect==3.3
-pickleshare==0.5
 praw==3.6.0
 ptyprocess==0.5
 pycairo==1.10.0
@@ -56,8 +57,6 @@ PyYAML==3.12
 pyzmq==15.2.0
 qtconsole==4.1.1
 requests==2.9.1
-scikit-learn==0.17.1
-scipy==0.17.0
 seaborn==0.7.0
 semantic-version==2.5.0
 simplegeneric==0.8.1
