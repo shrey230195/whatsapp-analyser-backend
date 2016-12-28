@@ -2,7 +2,6 @@ nltk==3.2.1
 notebook==4.1.0
 numpy==1.10.4
 pandas==0.17.1
-path.py==0.0.0
 pathspec==0.5.0
 pexpect==3.3
 pickleshare==0.5
