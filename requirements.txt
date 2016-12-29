@@ -11,5 +11,5 @@ colorama==0.3.7
 Flask==0.10.1
 gunicorn==19.6.0
 jsonschema==2.4.0
-path==7.4
+
 
