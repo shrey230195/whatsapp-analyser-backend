@@ -334,4 +334,4 @@ def get_top_emojis():
     response.headers.add('Access-Control-Allow-Origin', '*')    
     return response
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host= '0.0.0.0')
