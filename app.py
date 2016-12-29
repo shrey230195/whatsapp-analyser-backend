@@ -6,6 +6,7 @@ import re
 import nltk
 # from nltk.book import *
 from nltk.tokenize import RegexpTokenizer
+import os
 
 app = Flask(__name__)
 
@@ -334,4 +335,5 @@ def get_top_emojis():
     response.headers.add('Access-Control-Allow-Origin', '*')    
     return response
 if __name__ == '__main__':
-    app.run(debug=True,host= '0.0.0.0')
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True,host= '0.0.0.0',port=port)
