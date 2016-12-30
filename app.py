@@ -317,19 +317,32 @@ def get_distinct_emojis():
 @app.route('/top_emojis')
 def get_top_emojis():
 	#MOST_USED_EMOJI
-    emoticons_data=get_emoticons_data()
+    
     sender_most_emoji={}
-
     for x in participants:
-	    most_emoji=[]
-	    for emo in sorted(emoticons_data[x])[-10:]:
-	        most_emoji.append(emoticons_data[emoticons_data[x]==emo].to_dict())
-	    sender_most_emoji[x]=most_emoji
+        sender={}
+        for k in participants:
+            sender[k]=[]
 
+        emoji=[]
+        most_emoji={}
+        freq=[]
+        for emo in sorted(emoticons_data[x])[-10:]:
+            freq.append(emoticons_data[emoticons_data[x]==emo]['freq'].values[0])
+            emoji.append(emoticons_data[emoticons_data[x]==emo]['emoji'].values[0])
+            for y in participants:
+                sender[y].append(emoticons_data[emoticons_data[x]==emo][y].values[0])
+            
+        most_emoji['emoji']=emoji
+        most_emoji['freq']=freq
+        for z in participants:
+            most_emoji[z]=sender[z]
+        sender_most_emoji[x]=most_emoji
+    #     print x,sender_most_emoji[x]
     most_used_emoji={
-	    'total':emoticons_data[emoticons_data.index<10].to_dict(),
-	    'sender':sender_most_emoji
-	    
+        'total':emoticons_data[emoticons_data.index<10].to_dict(),
+        'sender':sender_most_emoji
+        
     }
     response=jsonify(most_used_emoji);
     response.headers.add('Access-Control-Allow-Origin', '*')    
