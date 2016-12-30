@@ -317,6 +317,7 @@ def get_distinct_emojis():
 @app.route('/top_emojis')
 def get_top_emojis():
 	#MOST_USED_EMOJI
+    emoticons_data=get_emoticons_data()
     
     sender_most_emoji={}
     for x in participants:
