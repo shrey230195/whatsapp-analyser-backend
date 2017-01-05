@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask,jsonify
+from flask import Flask,jsonify,request
 import pandas as pd
 import numpy as np
 import re
@@ -7,6 +7,7 @@ import nltk
 # from nltk.book import *
 from nltk.tokenize import RegexpTokenizer
 import os
+from werkzeug import secure_filename
 
 app = Flask(__name__)
 
@@ -159,6 +160,12 @@ def get_emoticons_data():
 def index():
     dates=df.date[:10]
     return jsonify(dates)
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      return 'file uploaded successfully'
 @app.route('/get_participants')
 def get_participants():
     participants=[]
@@ -349,5 +356,5 @@ def get_top_emojis():
     response.headers.add('Access-Control-Allow-Origin', '*')    
     return response
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 7000))
     app.run(debug=True,host= '0.0.0.0',port=port)
